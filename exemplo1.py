@@ -11,8 +11,16 @@ except:
 
 try:
     n = int(input('Informe um número: '))
-except ValueError as e:
-    print(f'{e}')
-except KeyboardInterrupt as e:
-    print(f'\nO usuário cancelou a operação')
+except (ValueError, KeyboardInterrupt, IndexError) as e:
+    print(f'Erro: {e}')
+else:
+    print(f'Você informou: {n}')
 
+try:    
+    txt= input('Informe o nome: ')[0]
+except IndexError:
+    print(f'Precisa digitar algo')
+else:
+    print('Acertou')
+finally:
+    print('Sempre executado')
